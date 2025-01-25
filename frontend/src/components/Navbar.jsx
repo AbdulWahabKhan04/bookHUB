@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { HiMiniBars3CenterLeft, HiOutlineHeart, HiOutlineShoppingCart } from "react-icons/hi2";
 import { IoSearchOutline } from "react-icons/io5";
 import { HiOutlineUser } from "react-icons/hi";
@@ -19,11 +19,15 @@ const Navbar = () => {
 
     const  [isDropdownOpen, setIsDropdownOpen] = useState(false)
     const cartItems = useSelector(state => state.cart.cartItems);
-   
+   const navigate = useNavigate();
     const {currentUser, logout} = useAuth()
     
     const handleLogOut = () => {
         logout()
+    }
+
+    const onSearch = (e)=>{
+        navigate(`/search?query=${e.target.value}`)
     }
 
     const token = localStorage.getItem('token');
@@ -42,7 +46,7 @@ const Navbar = () => {
 
                         <IoSearchOutline className="absolute inline-block left-3 inset-y-2" />
 
-                        <input type="text" placeholder="Search here"
+                        <input type="text" onChange={(e) => onSearch(e)} placeholder="Search here"
                             className="bg-[#EAEAEA] w-full py-1 md:px-8 px-6 rounded-md focus:outline-none"
                         />
                     </div>
