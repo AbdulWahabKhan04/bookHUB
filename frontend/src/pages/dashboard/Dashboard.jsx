@@ -68,7 +68,6 @@ const Dashboard = () => {
                 </div>
                 <div>
                   <span className="inline-block text-2xl font-bold">{data?.trendingBooks}</span>
-                  <span className="inline-block text-xl text-gray-500 font-semibold">(13%)</span>
                   <span className="block text-gray-500">Trending Books in This Month</span>
                 </div>
               </div>
@@ -82,7 +81,7 @@ const Dashboard = () => {
                 </div>
               </div>
             </section>
-            <section className="grid md:grid-cols-2 xl:grid-cols-4 xl:grid-rows-3 xl:grid-flow-col gap-6">
+            <section className="grid md:grid-cols-2 xl:grid-cols-2 xl:grid-rows-2 xl:grid-flow-col gap-6">
               <div className="flex flex-col md:col-span-2 md:row-span-2 bg-white shadow rounded-lg">
                 <div className="px-6 py-5 font-semibold border-b border-gray-100">The number of orders per month</div>
                 <div className="p-4 flex-grow">
@@ -115,7 +114,7 @@ const Dashboard = () => {
                   <span className="block text-gray-500">Website visits (last day)</span>
                 </div>
               </div>
-              <div className="row-span-3 bg-white shadow rounded-lg">
+              <div className="row-span-11 bg-white shadow rounded-lg w-full">
                 <div className="flex items-center justify-between px-6 py-5 font-semibold border-b border-gray-100">
                   <span>Users by average order</span>
                   <button type="button" className="inline-flex justify-center rounded-md px-1 -mr-1 bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-600" id="options-menu" aria-haspopup="true" aria-expanded="true">
@@ -187,16 +186,14 @@ const Dashboard = () => {
                   </ul>
                 </div>
               </div>
-              <div className="flex flex-col row-span-3 bg-white shadow rounded-lg">
+              {/* <div className="flex flex-col row-span-3 bg-white shadow rounded-lg">
                 <div className="px-6 py-5 font-semibold border-b border-gray-100">Students by type of studying</div>
                 <div className="p-4 flex-grow">
                   <div className="flex items-center justify-center h-full px-4 py-24 text-gray-400 text-3xl font-semibold bg-gray-100 border-2 border-gray-200 border-dashed rounded-md">Chart</div>
                 </div>
-              </div>
+              </div> */}
             </section>
-            <section className="text-right font-semibold text-gray-500">
-              <a href="#" className="text-purple-600 hover:underline">Recreated on Codepen</a> with <a href="https://tailwindcss.com/" className="text-teal-400 hover:underline">Tailwind CSS</a> by Azri Kahar, <a href="https://dribbble.com/shots/10711741-Free-UI-Kit-for-Figma-Online-Courses-Dashboard" className="text-purple-600 hover:underline">original design</a> made by Chili Labs
-            </section>
+            
     </>
   )
 }

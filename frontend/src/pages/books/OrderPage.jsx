@@ -1,9 +1,11 @@
 import React from 'react'
 import { useGetOrderByEmailQuery } from '../../redux/features/orders/ordersApi'
 import { useAuth } from '../../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const OrderPage = () => {
     const { currentUser} = useAuth()
+    const navigateTo = useNavigate()
 
 
     const { data: orders = [], isLoading, isError } = useGetOrderByEmailQuery(currentUser.email);
@@ -25,10 +27,14 @@ const OrderPage = () => {
                                 <p className="text-gray-600">Total Price: ${order.totalPrice}</p>
                                 <h3 className="font-semibold mt-2">Address:</h3>
                                 <p> {order.address.city}, {order.address.state}, {order.address.country}, {order.address.zipcode}</p>
-                                <h3 className="font-semibold mt-2">Products Id:</h3>
+                                <h1 className='font-semibold mt-5 text-gray-600'>Status: <span className={`text-white uppercase rounded-lg ${order.status === 'delivered' ? "p-2 bg-green-500" : "bg-red-500 p-2 rounded-lg text-white"}`}> {order.status} </span></h1>
+                                <h3 className="font-semibold mt-2">Books:</h3>
                                 <ul>
-                                    {order.productIds.map((productId) => (
-                                        <li key={productId}>{productId}</li>
+                                    {order.productIds.map((book) => (
+                                        
+                                        <li key={book._id}>
+                                           <div className="flex gap-8 items-center w-1/4 p-2 justify-between" onClick={()=> navigateTo(`/books/${book._id}`)}> <p className='hover:cursor-pointer w-1/2 hover:text-yellow-500'> {book.title} </p> <img className='h-48 object-cover w-max border border-yellow-500 ' src={book.coverImage ? book.coverImage : "https://bookstoreromanceday.org/wp-content/uploads/2020/08/book-cover-placeholder.png"} /> </div>
+                                            </li>
                                     ))}
                                 </ul>
                             </div>

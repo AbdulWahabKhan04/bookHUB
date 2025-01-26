@@ -18,6 +18,7 @@ import UpdateBook from "../pages/dashboard/EditBook/UpdateBook";
 import UserDashboard from "../pages/dashboard/users/UserDashboard";
 import Store from "../pages/books/Store";
 import SearchPage from "../pages/books/SearchPage";
+import ManageOrders from "../pages/dashboard/ManageOrders";
 
 const router = createBrowserRouter([
   {
@@ -123,6 +124,14 @@ const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <ManageBooks />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "orders",
+        element: (
+          <AdminRoute>
+            <ManageOrders />
           </AdminRoute>
         ),
       },

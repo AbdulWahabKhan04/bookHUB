@@ -21,7 +21,7 @@ const BookCard = ({book}) => {
                 <div className="sm:h-72 sm:flex-shrink-0 border rounded-md">
                     <Link to={`/books/${book._id}`}>
                         <img
-                            src={`${book?.coverImage}`}
+                            src={`${book?.coverImage ? book.coverImage : 'https://bookstoreromanceday.org/wp-content/uploads/2020/08/book-cover-placeholder.png'}`}
                             alt=""
                             className="w-full h-full bg-cover p-2 rounded-md cursor-pointer hover:scale-105 transition-all duration-200"
                         />

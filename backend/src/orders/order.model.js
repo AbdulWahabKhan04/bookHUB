@@ -22,6 +22,11 @@ const orderSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
+    status: {
+        type: String,
+        default: "pending",
+        enum: ["pending", "delivered", "cancelled", "on route"]
+    },
     productIds:[
         {
             type: mongoose.Schema.Types.ObjectId,

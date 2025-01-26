@@ -34,10 +34,10 @@ const SearchPage = () => {
         Search Results for: <span className="font-bold"> {query} </span>
       </p>
       <div className="flex h-max my-5">
-        <div className="flex flex-col items-center gap-40">
+        <div className="flex flex-col  gap-10">
           {searchedBooks.length > 0
             ? searchedBooks.map((book) => {
-                return  <BookCard key={book._id} book={book} /> 
+                return  <div className="w-max"><BookCard key={book._id} book={book} /> </div> 
               })
             : "No Books found matching this name!"}
           

@@ -14,13 +14,16 @@ router.get("/", async (req, res) => {
         // 2. Total sales (sum of all totalPrice from orders)
         const totalSales = await Order.aggregate([
             {
-                $group: {
-                    _id: null,
-                    totalSales: { $sum: "$totalPrice" },
-                }
+              $match: { status: "delivered" } // Filter for orders with status 'delivered'
+            },
+            {
+              $group: {
+                _id: null,
+                totalSales: { $sum: "$totalPrice" } // Sum the totalPrice of filtered orders
+              }
             }
-        ]);
-
+          ]);
+          
         // 4. Trending books statistics: 
         const trendingBooksCount = await Book.aggregate([
             { $match: { trending: true } },  // Match only trending books

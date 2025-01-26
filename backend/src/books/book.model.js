@@ -23,7 +23,6 @@ const bookSchema = new mongoose.Schema({
     },
     coverImage: {
         type: String,
-        required: true,
     },
     oldPrice: {
         type: Number,
